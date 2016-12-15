@@ -40,7 +40,7 @@ var Results = React.createClass ({
             var pickresults = names.results;
             var possible = pickresults[Math.floor(Math.random() * pickresults.length)];
             return (
-                       <div id="results" className="search-results" dangerouslySetInnerHTML={{__html: possible}}></div>
+                       <div id="results" className="search-results">{possible}</div>
                    );
         }
 })
