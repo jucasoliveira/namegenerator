@@ -1,12 +1,35 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
+import Firebase from 'firebase';
 
+
+// Set the configuration for your app
+// TODO: Replace with your project's config object
+var config = {
+    apiKey: "YOURAPIKEY",
+    authDomain: "namegenenrator.firebaseapp.com",
+    databaseURL: "https://namegenenrator.firebaseio.com",
+    storageBucket: "namegenenrator.appspot.com",
+    messagingSenderId: "YOURSENDER"
+  };
+Firebase.initializeApp(config);
+
+
+// Get a reference to the database service
+var database = Firebase.database();
+var UCRef = database.ref("names/results");
 
 export default class Results extends React.Component {
-  state = {
-    open: false,
+
+
+  constructor(props){
+    super(props);
+    this.state={
+      name:[],
+      open: false,
+    }
   };
 
   handleOpen = () => {
@@ -17,45 +40,27 @@ export default class Results extends React.Component {
     this.setState({open: false});
   };
 
-  render() {
-    var names = { "results" :[
-      "Porco-velho",
-      "Muricoca",
-      "Pouco feio",
-      "Louca",
-      "Caju",
-      "Justica",
-      "Indio",
-      "Primo",
-      "Las Vegas",
-      "Angora",
-      "Caranguejo",
-      "Cerrado/Piqui",
-      "Polo",
-      "Gremista",
-      "Babel",
-      "Bitelo",
-      "Campari",
-      "Gripado",
-      "Botafogo",
-      "Misericordia",
-      "Ferrari",
-      "Corredor",
-      "Todo Feio",
-      "Jovem",
-      "Feia",
-      "Comuna",
-      "Goleiro",
-      "Diplomata",
-      "Moleza",
-      "Velhinho"
-      ]
-    };
+  componentDidMount() {
 
-    var pickresults = names.results;
+
+    var uc = UCRef.on('value', snapshot => {
+      this.setState({name: snapshot.val()});
+    });
+
+  };
+
+  render() {
+
+    var pickresults = this.state.name;
     var possible = pickresults[Math.floor(Math.random() * pickresults.length)];
-    
+
     const actions = [
+      <FlatButton
+        label="SHARE ON FACEBOOK"
+        h
+        primary={true}
+        onClick={this.handleClose}
+      />,
       <FlatButton
         label="OK"
         primary={true}

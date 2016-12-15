@@ -1,19 +1,19 @@
-import rnsync from 'rnsync';
+import React, { Component } from 'react';
+import firebase from 'firebase';
 
-// init with your cloudant or couchDB database
-var dbUrl = "https://user:pass@xxxxx";
-var dbName = "name_xxxx";
+var config = {
+  apiKey: "AIzaSyDbvEQXI1rv1-AEutNKreqxmWpgjltCh_w",
+  authDomain: "namegenenrator.firebaseapp.com",
+  databaseURL: "https://namegenenrator.firebaseio.com",
+  storageBucket: "namegenenrator.appspot.com",
+  messagingSenderId: "807735289237"
+};
+var app = firebase.initializeApp(config);
 
-rnsync.init(dbUrl, dbName, function(error)
-{
-  console.log(error);
-}
 
 
-//import database
-var id = "whatever";
+export default class Dbsync extends React.Component {
 
-rnsync.retrieve(id, function(error, doc)
-{
-  console.log(JSON.stringify(doc.body));
+  return app
+
 }

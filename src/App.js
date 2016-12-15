@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import logo from './gear.svg';
 import './App.css';
 import Results from './components/result.js';
@@ -6,12 +6,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 
 var App = React.createClass ({
-/*  getInitialState () {
-         return { showResults: false };
-   },
-   onClick () {
-       this.setState({ showResults: true });
-   },*/
+
 
   render() {
     return (
