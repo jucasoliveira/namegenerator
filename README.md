@@ -32,6 +32,10 @@ my-app/
     index.html
     favicon.ico
   src/
+    components/
+      result.js
+    dbsync/
+      dbsync.js
     App.css
     App.js
     App.test.js
