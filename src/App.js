@@ -3,7 +3,6 @@ import logo from './gear.svg';
 import './App.css';
 import Results from './components/result.js';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RaisedButton from 'material-ui/RaisedButton';
 
 
 var App = React.createClass ({
