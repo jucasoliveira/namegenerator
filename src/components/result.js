@@ -56,12 +56,6 @@ export default class Results extends React.Component {
 
     const actions = [
       <FlatButton
-        label="SHARE ON FACEBOOK"
-        h
-        primary={true}
-        onClick={this.handleClose}
-      />,
-      <FlatButton
         label="OK"
         primary={true}
         onClick={this.handleClose}
