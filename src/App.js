@@ -3,12 +3,25 @@ import logo from './gear.svg';
 import './App.css';
 import Results from './components/result.js';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
+import FlatButton from 'material-ui/FlatButton';
+import FontIcon from 'material-ui/FontIcon';
 
 var App = React.createClass ({
 
 
   render() {
+    const FlatButtonExampleComplex = () => (
+  <div>
+    <FlatButton
+      href="https://github.com/jucasoliveira/namegenerator"
+      target="_blank"
+      label="GitHub Link"
+      secondary={true}
+      icon={<FontIcon className="muidocs-icon-custom-github" />}
+    />
+  </div>
+);
+
     return (
       <MuiThemeProvider>
         <div className="App">
@@ -22,6 +35,9 @@ var App = React.createClass ({
           <div>
             <Results/>
           </div>
+          <p>
+          <FlatButtonExampleComplex/>
+          </p>
         </div>
       </MuiThemeProvider>
     );

@@ -14,6 +14,8 @@ Firebase.initializeApp(config);
 
 export default class Dbsync extends React.Component {
 
-  return app
+  // Get a reference to the database service
+  var database = Firebase.database();
+  var UCRef = database.ref("names/results");
 
 }

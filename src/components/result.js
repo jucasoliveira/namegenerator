@@ -4,15 +4,14 @@ import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import Firebase from 'firebase';
 
-
 // Set the configuration for your app
 // TODO: Replace with your project's config object
 var config = {
-    apiKey: "YOURAPIKEY",
+    apiKey: "AIzaSyDbvEQXI1rv1-AEutNKreqxmWpgjltCh_w",
     authDomain: "namegenenrator.firebaseapp.com",
     databaseURL: "https://namegenenrator.firebaseio.com",
     storageBucket: "namegenenrator.appspot.com",
-    messagingSenderId: "YOURSENDER"
+    messagingSenderId: "807735289237"
   };
 Firebase.initializeApp(config);
 
@@ -41,13 +40,11 @@ export default class Results extends React.Component {
   };
 
   componentDidMount() {
-
-
     var uc = UCRef.on('value', snapshot => {
       this.setState({name: snapshot.val()});
     });
-
   };
+
 
   render() {
 
@@ -55,6 +52,12 @@ export default class Results extends React.Component {
     var possible = pickresults[Math.floor(Math.random() * pickresults.length)];
 
     const actions = [
+      <FlatButton
+        label="SHARE"
+        href="https://www.facebook.com/dialog/share?app_id=145634995501895&display=popup&href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2F&redirect_uri=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fexplorer"
+        primary={true}
+        onClick={this.handleClose}
+      />,
       <FlatButton
         label="OK"
         primary={true}
