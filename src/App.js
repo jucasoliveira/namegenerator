@@ -1,7 +1,8 @@
 import React from 'react';
 import logo from './gear.svg';
 import './App.css';
-import Results from './components/result.js';
+import Results from './components/result';
+import NewName from './components/newname';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import FlatButton from 'material-ui/FlatButton';
 import FontIcon from 'material-ui/FontIcon';
@@ -34,6 +35,12 @@ var App = React.createClass ({
           </p>
           <div>
             <Results/>
+          </div>
+          <p>
+          Ou insira um novo apelido
+          </p>
+          <div>
+            <NewName/>
           </div>
           <p>
           <FlatButtonExampleComplex/>
