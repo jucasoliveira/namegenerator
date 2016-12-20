@@ -3,6 +3,7 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
+import Dbsync from './dbsync';
 
 export default class Results extends React.Component {
 
@@ -11,6 +12,7 @@ export default class Results extends React.Component {
     super(props);
     this.state={
       open: false,
+      textvalue: '',
     }
   };
 
@@ -20,9 +22,20 @@ export default class Results extends React.Component {
 
   handleClose = () => {
     this.setState({open: false});
+    this.saveText(this.state.textvalue);
   };
 
+  handleText = (event) => {
+    this.setState({textvalue: event.target.value});
+    console.log(this.state.textvalue);
+  };
 
+  saveText(textvalue) {
+    Dbsync.database.ref('names/results').set({
+     textvalue
+   });
+
+  };
 
   render() {
 
@@ -50,8 +63,9 @@ export default class Results extends React.Component {
           onRequestClose={this.handleClose}
         >
         <TextField
-         hintText="Escreva o apelido"
          floatingLabelText="Insira aqui o seu apelido"
+         value={this.state.textvalue}
+         onChange={this.handleText}
         />
        </Dialog>
       </div>
