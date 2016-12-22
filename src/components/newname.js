@@ -3,6 +3,7 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
+import {postName} from './dbsync';
 
 export default class Results extends React.Component {
 
@@ -26,11 +27,12 @@ export default class Results extends React.Component {
 
   handleText = (event) => {
     this.setState({textvalue: event.target.value});
-    console.log(this.state.textvalue);
+
   };
 
   saveText(textvalue) {
-    var retrievename = textvalue;
+    var retrievename = this.state.textvalue;
+    postName(retrievename);
   };
 
   render() {
