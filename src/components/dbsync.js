@@ -1,26 +1,33 @@
-import React, { Component } from 'react';
 import Firebase from 'firebase';
 
+// Set the configuration for your app
+// TODO: Replace with your project's config object
 var config = {
-    apiKey: "YOURAPIKEY",
+    apiKey: "AIzaSyDbvEQXI1rv1-AEutNKreqxmWpgjltCh_w",
     authDomain: "namegenenrator.firebaseapp.com",
     databaseURL: "https://namegenenrator.firebaseio.com",
     storageBucket: "namegenenrator.appspot.com",
-    messagingSenderId: "YOURSENDER"
+    messagingSenderId: "807735289237"
   };
 Firebase.initializeApp(config);
 
 
-
-export default class Dbsync extends React.Component {
-
-  database = () => {
-    // Get a reference to the database service
-    var database = Firebase.database();
-    var UCRef = database.ref("names/results");
-
-    return UCRef;
-  }
+// Get a reference to the database service
+var database = Firebase.database();
+var UCRef = database.ref("names/results");
 
 
+
+export function getName (){
+/*  return name => {
+    UCRef.on('value', snapshot => {
+      this.setState({name: snapshot.val()});
+    });}
+    */
+    console.log("deu certo o import");
+}
+
+
+export function postName(post){
+  return dispatch => {UCRef.push(post)};
 }
