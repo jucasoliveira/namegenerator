@@ -3,7 +3,7 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-//import {postName} from './dbsync';
+import DBsync from './dbsync';
 
 export default class Results extends React.Component {
 
@@ -32,7 +32,7 @@ export default class Results extends React.Component {
 
   saveText(textvalue) {
     var retrievename = this.state.textvalue;
-  //  postName(retrievename);
+    DBsync.postName(retrievename);
   };
 
   render() {

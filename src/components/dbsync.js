@@ -1,5 +1,6 @@
 import Firebase from 'firebase';
 
+
 // Set the configuration for your app
 // TODO: Replace with your project's config object
 var config = {
@@ -17,17 +18,21 @@ var database = Firebase.database();
 var UCRef = database.ref("names/results");
 
 
-
 export function getName (){
-/*  return name => {
+  return name => {
     UCRef.on('value', snapshot => {
       this.setState({name: snapshot.val()});
     });}
-    */
-    console.log("deu certo o import");
+
 }
 
 
 export function postName(post){
   return dispatch => {UCRef.push(post)};
+
 }
+
+module.exports = {
+    postName: postName, // (A)
+    getName: getName,
+};
