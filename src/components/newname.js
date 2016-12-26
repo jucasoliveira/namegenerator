@@ -34,10 +34,12 @@ export default class Results extends React.Component {
 
   handleText = (event) => {
     this.setState({textvalue: event.target.value});
+    
   };
 
   saveText(textvalue) {
     var retrievename = this.state.textvalue;
+
   };
 
   render() {
