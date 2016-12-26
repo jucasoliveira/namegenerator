@@ -23,6 +23,7 @@ export default class Results extends React.Component {
 
   handleClose = () => {
     this.setState({open: false});
+    this.setState({textvalue:''});
   };
 
   handleOKClose = () => {
