@@ -56,7 +56,7 @@ export default class Results extends React.Component {
     const actions = [
       <FlatButton
         label="SHARE"
-        href="https://www.facebook.com/dialog/share?app_id=145634995501895&display=popup&href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2F&redirect_uri=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fexplorer"
+        href="https://www.facebook.com/dialog/share?app_id=145634995501895&display=popup&href=https%3A%2F%2Fjucasoliveira.github.io%2Fnamegenerator%2F&redirect_uri=https%3A%2F%2Ffacebook.com%2F"
         primary={true}
         onClick={this.handleClose}
       />,
