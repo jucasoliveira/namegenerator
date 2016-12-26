@@ -3,6 +3,7 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
+//import DBsync from './dbsync';
 
 export default class Results extends React.Component {
 
@@ -13,6 +14,7 @@ export default class Results extends React.Component {
       open: false,
       textvalue: '',
     }
+    this.handleText = this.handleText.bind(this);
   };
 
   handleOpen = () => {
@@ -21,16 +23,21 @@ export default class Results extends React.Component {
 
   handleClose = () => {
     this.setState({open: false});
+  };
+
+  handleOKClose = () => {
+    this.setState({open: false});
     this.saveText(this.state.textvalue);
+    this.setState({textvalue:''});
   };
 
   handleText = (event) => {
     this.setState({textvalue: event.target.value});
-    console.log(this.state.textvalue);
   };
 
   saveText(textvalue) {
-    var retrievename = textvalue;
+    var retrievename = this.state.textvalue;
+    alert("o nome e " + retrievename);
   };
 
   render() {
@@ -45,7 +52,7 @@ export default class Results extends React.Component {
       <FlatButton
         label="OK"
         primary={true}
-        onClick={this.handleClose}
+        onClick={this.handleOKClose}
       />,
     ];
 
