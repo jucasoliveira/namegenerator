@@ -38,7 +38,6 @@ export default class Results extends React.Component {
 
   saveText(textvalue) {
     var retrievename = this.state.textvalue;
-    alert("o nome e " + retrievename);
   };
 
   render() {
