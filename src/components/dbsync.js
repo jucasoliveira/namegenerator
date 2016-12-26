@@ -18,7 +18,7 @@ var database = Firebase.database();
 var UCRef = database.ref("names/results");
 
 
-export function getName (){
+export function getName (name){
   return name => {
     UCRef.on('value', snapshot => {
       this.setState({name: snapshot.val()});
