@@ -14,6 +14,7 @@ export default class Results extends React.Component {
       open: false,
       textvalue: '',
     }
+    this.handleText = this.handleText.bind(this);
   };
 
   handleOpen = () => {
@@ -33,7 +34,6 @@ export default class Results extends React.Component {
 
   handleText = (event) => {
     this.setState({textvalue: event.target.value});
-
   };
 
   saveText(textvalue) {
