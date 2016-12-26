@@ -2,8 +2,8 @@ import React from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
-import Firebase from "firebase";
-//import DBsync from './dbsync';
+import Firebase from 'firebase';
+//import Dbsync from './dbsync';
 
 // Set the configuration for your app
 // TODO: Replace with your project's config object
@@ -42,11 +42,9 @@ export default class Results extends React.Component {
   };
 
   componentDidMount() {
-      //this.setState({name: DBsync.getName()});
-      //this.setState({name:DBsync.getName()});
-    var uc =  UCRef.on('value', snapshot => {
-        this.setState({name: snapshot.val()});
-      });
+    var uc = UCRef.on('value', snapshot => {
+      this.setState({name: snapshot.val()});
+    });
   };
 
 
