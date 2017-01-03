@@ -40,14 +40,13 @@ my-app/
     components/
       result.js
       dbsync.js
-      newname.js 
+      newname.js
     App.css
     App.js
     App.test.js
     index.css
     index.js
     logo.svg
-    gear.svg
 ```
 
 For the project to build, **these files must exist with exact filenames**:
