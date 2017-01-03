@@ -4,6 +4,10 @@ import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import Firebase from 'firebase';
 //import Dbsync from './dbsync';
+import {
+  ShareButtons,
+  generateShareIcon
+} from 'react-share';
 
 // Set the configuration for your app
 // TODO: Replace with your project's config object
@@ -20,6 +24,12 @@ Firebase.initializeApp(config);
 // Get a reference to the database service
 var database = Firebase.database();
 var UCRef = database.ref("names/results");
+
+const {
+  FacebookShareButton
+} = ShareButtons;
+
+const FacebookIcon = generateShareIcon('facebook');
 
 
 export default class Results extends React.Component {
@@ -41,25 +51,33 @@ export default class Results extends React.Component {
     this.setState({open: false});
   };
 
-  componentDidMount() {
-    var uc = UCRef.on('value', snapshot => {
+  componentDidMount = () => {
+    UCRef.on('value', snapshot => {
       this.setState({name: snapshot.val()});
     });
   };
 
 
+
   render() {
+
+    const shareUrl = 'https://jucasoliveira.github.io/namegenerator/';
 
     var pickresults = this.state.name;
     var possible = pickresults[Math.floor(Math.random() * pickresults.length)];
+    var title = "Meu apelido da Odebrecht é " + possible + " e o seu? Descubra o seu apelido!";
 
     const actions = [
-      <FlatButton
-        label="SHARE"
-        href="https://www.facebook.com/dialog/share?app_id=145634995501895&display=popup&href=https%3A%2F%2Fjucasoliveira.github.io%2Fnamegenerator%2F&redirect_uri=https%3A%2F%2Ffacebook.com%2F"
-        primary={true}
-        onClick={this.handleClose}
-      />,
+      <FacebookShareButton
+            url={shareUrl}
+            title={title}
+            className="Demo__some-network__share-button">
+            <FlatButton
+              label="SHARE"
+              primary={true}
+              onClick={this.handleClose}
+            />
+      </FacebookShareButton>,
       <FlatButton
         label="OK"
         primary={true}
